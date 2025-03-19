@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة المفاتيح العربية</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .keyboard {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .key {
+      padding: 15px;
+      font-size: 1.2rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .key:hover {
+      background: #0056b3;
+    }
+    .key:active {
+      transform: scale(0.95);
+    }
+    .output {
+      width: 100%;
+      height: 100px;
+      padding: 10px;
+      font-size: 1.5rem;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+      background: #f9f9f9;
+      resize: none;
+      text-align: right;
+    }
+    .special-keys {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+    .special-key {
+      padding: 15px;
+      font-size: 1.2rem;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .special-key:hover {
+      background: #e64a19;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>لوحة المفاتيح العربية</h1>
+    <textarea class="output" id="output" placeholder="اكتب هنا..." readonly></textarea>
+    <div class="keyboard">
+      <button class="key">ض</button>
+      <button class="key">ص</button>
+      <button class="key">ق</button>
+      <button class="key">ف</button>
+      <button class="key">غ</button>
+      <button class="key">ع</button>
+      <button class="key">ه</button>
+      <button class="key">خ</button>
+      <button class="key">ح</button>
+      <button class="key">ج</button>
+      <button class="key">د</button>
+      <button class="key">ذ</button>
+      <button class="key">ر</button>
+      <button class="key">ز</button>
+      <button class="key">س</button>
+      <button class="key">ش</button>
+      <button class="key">ي</button>
+      <button class="key">ب</button>
+      <button class="key">ل</button>
+      <button class="key">ا</button>
+      <button class="key">ت</button>
+      <button class="key">ن</button>
+      <button class="key">م</button>
+      <button class="key">ك</button>
+      <button class="key">ط</button>
+      <button class="key">ئ</button>
+      <button class="key">ء</button>
+      <button class="key">ؤ</button>
+      <button class="key">ر</button>
+      <button class="key">ى</button>
+      <button class="key">ة</button>
+      <button class="key">و</button>
+      <button class="key">ز</button>
+      <button class="key">ظ</button>
+    </div>
+    <div class="special-keys">
+      <button class="special-key">مسافة</button>
+      <button class="special-key">حذف</button>
+      <button class="special-key">إدخال</button>
+    </div>
+  </div>
+
+  <script>
+    // Add functionality to the keyboard
+    const output = document.getElementById("output");
+    const keys = document.querySelectorAll(".key");
+    const specialKeys = document.querySelectorAll(".special-key");
+
+    // Add letters to the output
+    keys.forEach(key => {
+      key.addEventListener("click", () => {
+        output.value += key.textContent;
+      });
+    });
+
+    // Add functionality to special keys
+    specialKeys[0].addEventListener("click", () => {
+      output.value += " "; // Space
+    });
+
+    specialKeys[1].addEventListener("click", () => {
+      output.value = output.value.slice(0, -1); // Backspace
+    });
+
+    specialKeys[2].addEventListener("click", () => {
+      output.value += "\n"; // Enter
+    });
+  </script>
+</body>
+</html>
